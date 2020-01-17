@@ -87,16 +87,19 @@ async function instagramPhotos(url, cantPhotos) {
       if ((node.__typename && node.__typename !== 'GraphImage')) {
         continue
       }
-      // return node.edge_liked_by.count;
+      // return node;
 
       // Push the thumbnail src in the array
       urlParts = node.thumbnail_src.split("%")
       //console.log(urlParts[0])
-      data.push({
-        img: urlParts[0],
-        text: node.edge_media_to_caption.edges[0].node.text,
-        likes: node.edge_liked_by.count
-      })
+      if (node.accessibility_caption.includes("food")) {
+        data.push({
+          img: urlParts[0],
+          text: node.edge_media_to_caption.edges[0].node.text,
+          likes: node.edge_liked_by.count,
+          accessibility: node.accessibility_caption
+        })
+      }
       //console.log(res)
     }
   } catch (e) {
@@ -113,7 +116,7 @@ for (const route of routesArrayRD) {
   app.get(route.route, async (req, res) => {
     try {
       const data = await instagramPhotos(route.instagramUrl, 10)
-       return res.send({ data: data })
+      return res.send({ data: data })
       // return res.send(data)
     } catch (err) {
       console.log(err)
