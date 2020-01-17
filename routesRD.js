@@ -54,11 +54,7 @@ const routesArrayRD = [
     {
       route:"/rd/dogos",
       instagramUrl:"https://www.instagram.com/dogosuf"
-    },
-    {
-      route:"/rd/artepizza",
-      instagramUrl:"https://www.instagram.com/artepizzard"
-    },
+    },    
     {
       route:"/rd/jadeteriyaki",
       instagramUrl:"https://www.instagram.com/jadeteriyakird"
@@ -120,8 +116,8 @@ const routesArrayRD = [
       instagramUrl:"https://www.instagram.com/chefpepperrd"
     },
     {
-      route:"/rd/pizzahouse",
-      instagramUrl:"https://www.instagram.com/thepizzahousedom"
+      route:"/rd/littlecaesars",
+      instagramUrl:"https://www.instagram.com/littlecaesarspizza.do"
     },
     {
       route:"/rd/mrgrilled",
@@ -130,6 +126,18 @@ const routesArrayRD = [
     {
       route:"/rd/restaurantdorado",
       instagramUrl:"https://www.instagram.com/restaurantdorado"
+    },
+    {
+      route:"/rd/brooklynpizza",
+      instagramUrl:"https://www.instagram.com/brooklynpizzard"
+    },
+    {
+      route:"/rd/eltablonlatino",
+      instagramUrl:"https://www.instagram.com/eltablonlatino"
+    },
+    {
+      route:"/rd/ociogastropub",
+      instagramUrl:"https://www.instagram.com/ociogastropub"
     },
 
 ]
