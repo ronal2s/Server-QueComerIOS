@@ -87,7 +87,7 @@ async function instagramPhotos(url, cantPhotos) {
       if ((node.__typename && node.__typename !== 'GraphImage')) {
         continue
       }
-       return node;
+       //return node;
 
       // Push the thumbnail src in the array
       urlParts = node.thumbnail_src.split("%")
