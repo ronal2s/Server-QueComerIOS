@@ -1,27 +1,3 @@
-const santiagoRestaurants = [
-  {nombre: "Ocio Gastro Pub", tipo: "Varios"},
-  {nombre: "Square One", tipo: "Varios"},
-  {nombre: "Papa Johns", tipo: "Pizza"},
-  {nombre: "Dominos", tipo: "Pizza"},
-  {nombre: "Pizzarelli", tipo: "Pizza"},
-  {nombre: "Pizza Hut", tipo: "Pizza"},
-  {nombre: "NY Pizza", tipo: "Pizza"},
-  {nombre: "Little Caesars", tipo: "Pizza"},
-  {nombre: "Brooklyn Pizza", tipo: "Pizza"},
-  {nombre: "Burger king", tipo: "Sandwich"},
-  {nombre: "McDonalds", tipo: "Sandwich"},
-  {nombre: "Chef Pepper", tipo: "Sandwich"},
-  {nombre: "Victorina", tipo: "Pollo"},
-  {nombre: "Quiznos", tipo: "Sandwich"},
-  {nombre: "Jade Teriyaki", tipo: "Asiatica"},
-  {nombre: "El Tablon Latino", tipo: "Varios"},
-  {nombre: "Fridays", tipo: "Varios"},
-  {nombre: "KFC", tipo: "Pollo"},
-  {nombre: "Taco bell", tipo: "Mexicano"},
-  {nombre: "Subway", tipo: "Sandwich"},
-  {nombre: "Nori Sushi",   tipo: "Asiatica"},
-  {nombre: "Tu quipe", tipo: "Varios"},
-]
 const restaurantsSantiagoData = {  
   pizzahut: {
     startHour: 11,
@@ -200,6 +176,31 @@ const restaurantsSantiagoData = {
     tipo: "Varios" 
   },
 }
+
+const santiagoRestaurants = [
+  {nombre: "Ocio Gastro Pub", tipo: "Varios", ubicacion: restaurantsSantiagoData.ociogastropub.location },
+  {nombre: "Square One", tipo: "Varios", ubicacion: restaurantsSantiagoData.squareone.location},
+  {nombre: "Papa Johns", tipo: "Pizza", ubicacion: restaurantsSantiagoData.papajohns.location},
+  {nombre: "Dominos", tipo: "Pizza", ubicacion: restaurantsSantiagoData.dominos.location},
+  {nombre: "Pizzarelli", tipo: "Pizza", ubicacion: restaurantsSantiagoData.pizzarelli.location},
+  {nombre: "Pizza Hut", tipo: "Pizza", ubicacion: restaurantsSantiagoData.pizzahut.location},
+  {nombre: "NY Pizza", tipo: "Pizza", ubicacion: restaurantsSantiagoData.nypizza.location},
+  {nombre: "Little Caesars", tipo: "Pizza", ubicacion: restaurantsSantiagoData.littlecaesars.location},
+  {nombre: "Brooklyn Pizza", tipo: "Pizza", ubicacion: restaurantsSantiagoData.brooklynpizza.location},
+  {nombre: "Burger king", tipo: "Sandwich", ubicacion: restaurantsSantiagoData.burgerking.location},
+  {nombre: "McDonalds", tipo: "Sandwich", ubicacion: restaurantsSantiagoData.mcdonalds.location},
+  {nombre: "Chef Pepper", tipo: "Sandwich", ubicacion: restaurantsSantiagoData.chefpepper.location},
+  {nombre: "Victorina", tipo: "Pollo", ubicacion: restaurantsSantiagoData.victorina.location},
+  {nombre: "Quiznos", tipo: "Sandwich", ubicacion: restaurantsSantiagoData.quiznos.location},
+  {nombre: "Jade Teriyaki", tipo: "Asiatica", ubicacion: restaurantsSantiagoData.jadeteriyaki.location},
+  {nombre: "El Tablon Latino", tipo: "Varios", ubicacion: restaurantsSantiagoData.eltablonlatino.location},
+  {nombre: "Fridays", tipo: "Varios", ubicacion: restaurantsSantiagoData.fridays.location},
+  {nombre: "KFC", tipo: "Pollo", ubicacion: restaurantsSantiagoData.kfc.location},
+  {nombre: "Taco bell", tipo: "Mexicano", ubicacion: restaurantsSantiagoData.tacobell.location},
+  {nombre: "Subway", tipo: "Sandwich", ubicacion: restaurantsSantiagoData.subway.location},
+  {nombre: "Nori Sushi",   tipo: "Asiatica", ubicacion: restaurantsSantiagoData.norisushi.location},
+  {nombre: "Tu quipe", tipo: "Varios", ubicacion: restaurantsSantiagoData.tuquipe.location},
+]
 
 const santoDomingoRestaurants = ["Papa Johns", "Dominos", "Pizza Hut", "Pizzarelli", "Pizza House", "Burger king", "McDonalds", "Chef Pepper",
   "Victorina", "Quiznos", "Jade Teriyaki", "Fridays", "KFC", "Taco bell", "Subway", "Loop Friends", "Don Tato", "La Markesina"]
