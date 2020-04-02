@@ -9,6 +9,7 @@
     "express": "^4.16.3",
     "instagram-scraping": "^1.0.2",
     "instagram-screen-scrape": "^2.0.0",
+    "nodejs-nodemailer-outlook": "^1.2.3",
     "request": "^2.87.0",
     "request-promise": "^4.2.2"
   },

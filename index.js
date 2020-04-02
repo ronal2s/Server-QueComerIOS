@@ -2,21 +2,48 @@ const express = require("express");
 const app = express();
 const port = process.env.PORT || 5000;
 const Axios = require("axios")
-const { restaurantsSantoDomingoData,
-  santoDomingoRestaurants,
+const { 
   restaurantsSantiagoData,
   santiagoRestaurants,
-  lavegaRestaurants,
-  restaurantsLaVegaData,
-  sfcoMacorisRestaurants,
-  restaurantsSfcoMacorisData
-
 } = require("./data/restaurantsRD");
-const { sanjuanRestaurants, restaurantsSanJuanData } = './data/restaurantsPR'
+var nodeoutlook = require('nodejs-nodemailer-outlook')
+
 const { routesArrayRD } = require("./routesRD");
-const { routesArrayPR } = require("./routesPR");
 let miCache = {}
 
+function sendMail(body, callback) {
+  nodeoutlook.sendEmail({
+      auth: {
+          user: "ronal2w@outlook.com",
+          pass: "59ROioo2W1891172"
+      },
+      from: 'ronal2w@outlook.com',
+      // to: 'ronal2w@gmail.com',
+      to: 'ronal2w@gmail.com',
+      subject: `[QueComer]`,
+      // html: '<b>This is bold text</b>',
+      text: body,
+      // replyTo: 'receiverXXX@gmail.com',
+      attachments: [],
+      onError: (e) => {
+          console.log(e)
+          callback({ error: true })
+      },
+      onSuccess: (i) => {
+          console.log(i)
+          callback({ error: false })
+      }
+  }
+  );
+}
+
+app.get("/contacto", (req, res) => {
+  let { body } = req.query;
+  console.log(req.query);
+  sendMail(body, (result) => {
+      res.send(result)
+  })
+})
 
 app.get("/wakeup", (req, res) => {
   miCache = {}
@@ -28,39 +55,10 @@ app.get("/rd/santiagotitles", (req, res) => {
 
 })
 
-//RD
-app.get("/rd/santodomingotitles", (req, res) => {
-  res.send(santoDomingoRestaurants)
-})
-app.get("/rd/lavegatitles", (req, res) => {
-  res.send(lavegaRestaurants)
-})
-app.get("/rd/sfcomacoristitles", (req, res) => {
-  res.send(sfcoMacorisRestaurants)
-
-})
-
-
 app.get("/rd/santiagoRestaurantsInfo", (req, res) => {
   res.send(restaurantsSantiagoData);
 })
-app.get("/rd/santoDomingoRestaurantsInfo", (req, res) => {
-  res.send(restaurantsSantoDomingoData);
-})
-app.get("/rd/sfcoMacorisRestaurantsInfo", (req, res) => {
-  res.send(restaurantsSfcoMacorisData);
-})
-app.get("/rd/laVegaRestaurantsInfo", (req, res) => {
-  res.send(restaurantsLaVegaData);
-})
 
-//PR
-app.get("/pr/sanjuantitles", (req, res) => {
-  res.send(sanjuanRestaurants)
-})
-app.get("/pr/sanjuanRestaurantsInfo", (req, res) => {
-  res.send(restaurantsSanJuanData);
-})
 async function instagramPhotos(url, cantPhotos) {
   // It will contain our photos' links
 
@@ -110,7 +108,7 @@ async function instagramPhotos(url, cantPhotos) {
 
   miCache[url] = data;
   return data
-}//wtf
+}//end
 
 for (const route of routesArrayRD) {
   app.get(route.route, async (req, res) => {
@@ -125,20 +123,6 @@ for (const route of routesArrayRD) {
   })
 }
 
-for (const route of routesArrayPR) {
-  app.get(route.route, async (req, res) => {
-    try {
-      const data = await instagramPhotos(route.instagramUrl, 10)
-      return res.send({ data: data })
-    } catch (err) {
-      console.log(err)
-      return res.send({ error: err.message })
-    }
-  })
-}
 
-
-//Incluso, en mi instagram app, no puedo seguir a nadie me dice que tengo la acción bloqueada
 
 app.listen(port, () => console.log("Listen on port" + port));
-//parece que exploto
